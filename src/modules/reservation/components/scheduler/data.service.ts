@@ -7,22 +7,15 @@ import {Observable} from 'rxjs';
 export class DataService {
 
   resources: DayPilot.ResourceData[] = [
-    {
-      name: 'Group A', id: 'GA', expanded: true, children: [
-        {name: 'Resource 1', id: 'R1', capacity: 10},
-        {name: 'Resource 2', id: 'R2', capacity: 30},
-        {name: 'Resource 3', id: 'R3', capacity: 20},
-        {name: 'Resource 4', id: 'R4', capacity: 40}
-      ]
-    },
-    {
-      name: 'Group B', id: 'GB', expanded: true, children: [
-        {name: 'Resource 5', id: 'R5', capacity: 20},
-        {name: 'Resource 6', id: 'R6', capacity: 40},
-        {name: 'Resource 7', id: 'R7', capacity: 20},
-        {name: 'Resource 8', id: 'R8', capacity: 40}
-      ]
-    }
+        {chambre: '001', id: 'R1', category: "S",etat:"S"},
+        {chambre: '102', id: 'R2', category: "FA",etat:"P"},
+        {chambre: '103', id: 'R3', category: "S",etat:"P"},
+        {chambre: '104', id: 'R4', category: "FA",etat:"P"},
+   
+        {chambre: '110', id: 'R5', category: "S",etat:"P"},
+        {chambre: '111', id: 'R6', category: "FA",etat:"P"},
+        {chambre: '112', id: 'R7', category: "S",etat:"P"},
+        {chambre: '113', id: 'R8', category: "FA",etat:"P"},
   ];
 
   events: DayPilot.EventData[] = [

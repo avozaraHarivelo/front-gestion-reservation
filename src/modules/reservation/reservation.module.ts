@@ -13,8 +13,6 @@ import {DayPilotModule} from 'daypilot-pro-angular';
 /* Containers */
 import * as tableauxContainers from './containers';
 
-/* Components */
-import * as tableauxComponents from './components';
 
 /* Directives */
 import * as tablesDirectives from './../tables/directives';
@@ -25,6 +23,7 @@ import * as tablesGuards from './../tables/guards';
 /* Services */
 import * as tablesServices from './../tables/services';
 import { DataService } from './components/scheduler/data.service';
+import { SchedulerModule } from './components/scheduler/scheduler.module';
 
 @NgModule({
     imports: [
@@ -34,7 +33,8 @@ import { DataService } from './components/scheduler/data.service';
         FormsModule,
         AppCommonModule,
         NavigationModule,
-        DayPilotModule
+        DayPilotModule,
+        SchedulerModule
     ],
     providers: [
         DecimalPipe,
@@ -45,7 +45,6 @@ import { DataService } from './components/scheduler/data.service';
     ],
     declarations: [ 
         ...tableauxContainers.containers,
-        ...tableauxComponents.components,
         ...tablesDirectives.directives,],
     exports: [],
 })
