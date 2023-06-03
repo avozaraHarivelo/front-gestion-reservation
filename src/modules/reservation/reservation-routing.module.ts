@@ -19,10 +19,6 @@ export const ROUTES: Routes = [
             title: 'Réservation & Planning',
             breadcrumbs: [
                 {
-                    text: 'Dashboard',
-                    link: '/dashboard',
-                },
-                {
                     text: 'Réservation & Planning',
                     active: true,
                 },

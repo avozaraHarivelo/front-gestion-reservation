@@ -7,8 +7,7 @@ import {DataService} from "./data.service";
   template: `
   <sidebar-container #sidebar [(expanded)]="expanded">
     <sidebar-expanded >
-      <label class="row"><input type="checkbox" [(ngModel)]="navigatorConfig.freeHandSelectionEnabled"> Free-hand range</label>
-      <label class="row"><input type="checkbox" (change)="changeAutoCellWidth($event)"> Auto cell width</label>
+      <label class="row"><input type="checkbox" (change)="changeAutoCellWidth($event)"> Largeur automatique</label>
       <div style="padding: 3px;">
       <daypilot-navigator [config]="navigatorConfig" [date]="navigatorDate" (dateChange)="dateChange()" #navigator></daypilot-navigator>
       </div>
@@ -96,7 +95,7 @@ export class SchedulerComponent implements AfterViewInit {
     timeRangeSelectedHandling: "Enabled",
     onTimeRangeSelected: async (args) => {
       const dp = args.control;
-      const modal = await DayPilot.Modal.prompt("Create a new event:", "Event 1");
+      const modal = await DayPilot.Modal.prompt("Créer un nouvel réservation", "Evenement 1");
       dp.clearSelection();
       if (modal.canceled) { return; }
       dp.events.add({
@@ -109,13 +108,13 @@ export class SchedulerComponent implements AfterViewInit {
     },
     contextMenu: new DayPilot.Menu({
       items: [
-        { text: "Edit...",
+        { text: "Modifier...",
           onClick: async args => {
             const e = args.source;
             this.editEvent(e);
           }
         },
-        { text: "Delete",
+        { text: "Supprimer",
           onClick: args => {
             const e = args.source;
             this.scheduler.control.events.remove(e);
@@ -149,11 +148,11 @@ export class SchedulerComponent implements AfterViewInit {
     },
     eventMoveHandling: "Update",
     onEventMoved: (args) => {
-      args.control.message("Event moved: " + args.e.text());
+      args.control.message("Réservation déplacé: " + args.e.text());
     },
     eventResizeHandling: "Update",
     onEventResized: (args) => {
-      args.control.message("Event resized: " + args.e.text());
+      args.control.message("Réservation redimensionné: " + args.e.text());
     },
     treeEnabled: true,
   };
@@ -189,7 +188,7 @@ export class SchedulerComponent implements AfterViewInit {
 
   async editEvent(e: DayPilot.Event): Promise<void> {
     const form = [
-      { name: "Name", id: "text", type: "text"},
+      { name: "Nom", id: "text", type: "text"},
       { name: "Description", id: "description", type: "textarea"}
     ];
     const modal = await DayPilot.Modal.form(form, e.data);
